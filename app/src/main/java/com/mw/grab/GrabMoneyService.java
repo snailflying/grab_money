@@ -15,7 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class LuckyMoneyService extends AccessibilityService {
+public class GrabMoneyService extends AccessibilityService {
     private List<AccessibilityNodeInfo> mReiceiveNode = null;
     private List<AccessibilityNodeInfo> mUnpackNode = null;
 
