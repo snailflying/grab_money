@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name="com.mw.grab.LuckyMoneyService"
+            android:name=".GrabMoneyService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService"/>

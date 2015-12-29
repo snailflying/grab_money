@@ -30,11 +30,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         switchPlugin = (Button) findViewById(R.id.button_accessible);
 
-        handleMIUIStatusBar();
+//        handleMIUIStatusBar();
         updateServiceStatus();
     }
 
-    private void handleMIUIStatusBar() {
+    /*private void handleMIUIStatusBar() {
         Window window = getWindow();
 
         Class clazz = window.getClass();
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     protected void onResume() {
