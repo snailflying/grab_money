@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/classes-7bc2ae416eff6870ae46656dee694745146d9c0d.jar" />
+    </item>
+    <item
+        jar="/Users/aaron/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.16/bdc5ca010675cd9385bdd3a28cf53ee88164424f/rxjava-1.0.16.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bdc5ca010675cd9385bdd3a28cf53ee88164424f">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/rxjava-1.0.16-5b97c0fe517a80a71c434f862739a70964f550db.jar" />
+    </item>
+    <item
+        jar="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-d7f4d3feeebeac01176b1d966aca47e72be449d9.jar" />
+    </item>
+    <item
+        jar="/Users/aaron/iTools/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-69801424e4d2839b3f3b4a2804dbe40358fc69fb.jar" />
+    </item>
+    <item
+        jar="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/classes-468ef01e4fa80d1bc1f7b9b47250fb28f4d23305.jar" />
+    </item>
+    <item
+        jar="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/aaron/iWork/WeChatLuckyMoney-stable/app/build/intermediates/pre-dexed/debug/classes-99811c8487381c8e502052c1be057eec99d5d7fa.jar" />
+    </item>
+
+</items>

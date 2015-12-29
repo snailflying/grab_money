@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#e53935"
+        android:elevation="8dp"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="12dp"
+        android:text="微信红包"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fff" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="openGithub"
+        android:scaleType="centerInside"
+        android:src="@mipmap/github" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="openGithub"
+        android:text="稳定版"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:clickable="true"
+        android:onClick="openGithub"
+        android:text="去Github关注项目进展"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/github"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:onClick="openGithub"
+        android:text="https://github.com/snailflying/grab_money"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#2196f3" />
+
+    <Button
+        android:id="@+id/button_accessible"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/github"
+        android:layout_alignParentBottom="false"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#fdfdfd"
+        android:onClick="onButtonClicked"
+        android:text="@string/service_name"
+        android:textColor="#ff666666" />
+</RelativeLayout>
