@@ -32,12 +32,12 @@ public class GrabMoneyService extends AccessibilityService {
     public void onAccessibilityEvent(AccessibilityEvent event) {
 
         final int eventType = event.getEventType();
-        Log.e("aaron", "eventType ="+eventType);
+//        Log.e("aaron", "eventType ="+eventType);
 
         if (event.getEventType() == AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED) {
 
             List<CharSequence> texts = event.getText();
-            Log.e("aaron", "texts ="+texts);
+            Log.e("aaron", "texts =" + texts);
             for (CharSequence t : texts) {
 
                 if (t.toString().contains("[微信红包]")) {// 获取通知栏字符，若包含 [微信红包]
@@ -57,7 +57,7 @@ public class GrabMoneyService extends AccessibilityService {
             if (null != nodeInfo) {
                 mReiceiveNode = null;
                 mUnpackNode = null;
-                checkNodeInfo();
+                checkNodeInfo(nodeInfo);
                 /* 如果已经接收到红包并且还没有戳开 */
                 if (mLuckyMoneyReceived && !mLuckyMoneyPicked && (mReiceiveNode != null)) {
                     int size = mReiceiveNode.size();
@@ -105,21 +105,27 @@ public class GrabMoneyService extends AccessibilityService {
      * 检查节点信息
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void checkNodeInfo() {
+    private void checkNodeInfo(AccessibilityNodeInfo rootInfo) {
         AccessibilityNodeInfo nodeInfo = getRootInActiveWindow();
+        //rootInfo可能为空
+        Log.e("aaron ", "nodeInfo = " + nodeInfo);
 
         if (nodeInfo != null) {
             /* 聊天会话窗口，遍历节点匹配“领取红包” */
             List<AccessibilityNodeInfo> node1 = nodeInfo.findAccessibilityNodeInfosByText("领取红包");
-            Log.e("aaron ", "node1 = "+node1);
+            List<AccessibilityNodeInfo> node12 = nodeInfo.findAccessibilityNodeInfosByText("你领取了");
+            Log.e("aaron ", "node1 = " + node1);
+            Log.e("aaron ", "node12 = " + node12);
 
             if (!node1.isEmpty()) {
-                String nodeId = Integer.toHexString(System.identityHashCode(nodeInfo));
-                Log.d("233", nodeInfo.toString());
-                if (!checkFetched(nodeId)) {
-                    mLuckyMoneyReceived = true;
-                    mReiceiveNode = node1;
+                if (node12.isEmpty() || node1.size() > node12.size()) {
+                    String nodeId = Integer.toHexString(System.identityHashCode(nodeInfo));
+                    if (!checkFetched(nodeId)) {
+                        mLuckyMoneyReceived = true;
+                        mReiceiveNode = node1;
+                    }
                 }
+
                 return;
             }
 
@@ -162,6 +168,8 @@ public class GrabMoneyService extends AccessibilityService {
     }
 
     private boolean checkFetched(String nodeId) {
+        Log.e("aaron", "nodeId = " + nodeId + ", fetchIdentifiers = " + fetchIdentifiers);
+
         for (String identifier : fetchIdentifiers) {
             if (nodeId.equals(identifier))
                 return true;
