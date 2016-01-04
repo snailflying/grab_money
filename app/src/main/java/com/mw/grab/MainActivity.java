@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
         List<AccessibilityServiceInfo> accessibilityServices =
                 accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);
         for (AccessibilityServiceInfo info : accessibilityServices) {
-            if (info.getId().equals(getPackageName() + "/.LuckyMoneyService")) {
+            if (info.getId().equals(getPackageName() + "/.GrabMoneyService")) {
                 serviceEnabled = true;
                 break;
             }

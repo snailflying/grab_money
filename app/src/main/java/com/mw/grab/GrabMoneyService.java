@@ -111,6 +111,8 @@ public class GrabMoneyService extends AccessibilityService {
         if (nodeInfo != null) {
             /* 聊天会话窗口，遍历节点匹配“领取红包” */
             List<AccessibilityNodeInfo> node1 = nodeInfo.findAccessibilityNodeInfosByText("领取红包");
+            Log.e("aaron ", "node1 = "+node1);
+
             if (!node1.isEmpty()) {
                 String nodeId = Integer.toHexString(System.identityHashCode(nodeInfo));
                 Log.d("233", nodeInfo.toString());
