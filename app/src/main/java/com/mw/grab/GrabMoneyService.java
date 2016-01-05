@@ -25,6 +25,8 @@ public class GrabMoneyService extends AccessibilityService {
     private boolean mNeedBack = false;
     private List<String> fetchIdentifiers = new ArrayList<>();
     private String lastFetchedHongbaoId = null;
+    private String lastRootInfoHongbaoId = null;
+    private String lastNode1HongbaoId = null;
     private long lastFetchedtime = System.currentTimeMillis();
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -114,16 +116,27 @@ public class GrabMoneyService extends AccessibilityService {
             /* 聊天会话窗口，遍历节点匹配“领取红包” */
             List<AccessibilityNodeInfo> node1 = nodeInfo.findAccessibilityNodeInfosByText("领取红包");
             List<AccessibilityNodeInfo> node12 = nodeInfo.findAccessibilityNodeInfosByText("你领取了");
-            Log.e("aaron ", "node1 = " + node1);
-            Log.e("aaron ", "node12 = " + node12);
 
-            if (!node1.isEmpty()) {
-                if (node12.isEmpty() || node1.size() > node12.size()) {
+            //判断是否该抢红包
+            if (!node1.isEmpty() && node1.size() > 0) {
+                String tagNode1 = getNodeId(node1.get(node1.size() - 1));
+
+                if (tagNode1 != null && tagNode1.equals(lastNode1HongbaoId)) {
+
+                    if (node12.isEmpty() || node1.size() > node12.size()) {
+                        String nodeId = Integer.toHexString(System.identityHashCode(nodeInfo));
+                        if (!checkFetched(nodeId)) {
+                            mLuckyMoneyReceived = true;
+                            mReiceiveNode = node1;
+                        }
+                    }
+                } else {
                     String nodeId = Integer.toHexString(System.identityHashCode(nodeInfo));
                     if (!checkFetched(nodeId)) {
                         mLuckyMoneyReceived = true;
                         mReiceiveNode = node1;
                     }
+                    lastNode1HongbaoId = tagNode1;
                 }
 
                 return;
@@ -185,7 +198,7 @@ public class GrabMoneyService extends AccessibilityService {
      * @param node AccessibilityNodeInfo对象
      * @return id字符串
      */
-    private String getNodeId(AccessibilityNodeInfo node) {
+    private String getNodeId(Object node) {
         /* 用正则表达式匹配节点Object */
         Pattern objHashPattern = Pattern.compile("(?<=@)[0-9|a-z]+(?=;)");
         Matcher objHashMatcher = objHashPattern.matcher(node.toString());
